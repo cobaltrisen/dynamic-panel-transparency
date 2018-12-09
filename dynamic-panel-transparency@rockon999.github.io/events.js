@@ -62,8 +62,8 @@ function init() {
 
     if (typeof global.display !== 'undefined') {
         this._windowRestackedSig = global.display.connect_after('restacked', Lang.bind(this, _windowRestacked));
-    } else if (typeof global.screen !== 'undefined') {
-        this._windowRestackedSig = global.screen.connect_after('restacked', Lang.bind(this, _windowRestacked));
+    } else if (typeof global.display !== 'undefined') {
+        this._windowRestackedSig = global.display.connect_after('restacked', Lang.bind(this, _windowRestacked));
     } else {
         log('[Dynamic Panel Transparency] Error could not register \'restacked\' event.');
     }
@@ -113,8 +113,8 @@ function cleanup() {
 
     if (typeof global.display !== 'undefined') {
         global.display.disconnect(this._windowRestackedSig);
-    } else if (typeof global.screen !== 'undefined') {
-        global.screen.disconnect(this._windowRestackedSig);
+    } else if (typeof global.display !== 'undefined') {
+        global.display.disconnect(this._windowRestackedSig);
     } else {
         log('[Dynamic Panel Transparency] Error could not disconnect \'restacked\' event.');
     }
